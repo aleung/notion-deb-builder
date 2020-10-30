@@ -1,0 +1,22 @@
+{
+  "name": "notion-deb-builder",
+  "version": "1.0.0",
+  "description": "Build Notion packages for Ubuntu/Debian",
+  "main": "index.js",
+  "repository": "https://github.com/aleung/notion-deb-builder.git",
+  "author": "Leo Liang <leoliang@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "download": "/bin/bash download.sh $npm_package_config_platform $npm_package_config_version",
+    "build": "/bin/bash build.sh $npm_package_config_platform"
+  },
+  "devDependencies": {
+    "asar": "^3.0.3",
+    "electron-installer-debian": "^3.1.0",
+    "electron-packager": "^15.1.0"
+  },
+  "config": {
+    "platform": "win",
+    "version": "2.0.9"
+  }
+}

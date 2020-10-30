@@ -8,46 +8,39 @@ See [Releases](https://github.com/davidbailey00/notion-deb-builder/releases)
 
 ## Requirements
 
-1. Install Node.js, e.g. using NVM:
-
-   ```sh
-   nvm install node
-   ```
-
-2. Install `asar`, `electron-packager` and `electron-installer-debian`:
-
-   ```sh
-   npm -g install asar electron-packager electron-installer-debian
-   ```
-
-3. Install packages required for `7z`, `convert`, `fakeroot` and `dpkg`.
+1. Install required packages `node.js`, `7z`, `convert`, `fakeroot` and `dpkg`.
 
    Using Ubuntu or Debian:
 
    ```sh
-   sudo apt install p7zip-full imagemagick fakeroot
+   sudo apt install nodejs p7zip-full imagemagick fakeroot
    ```
 
    Or, using macOS:
 
    ```sh
-   brew install p7zip imagemagick fakeroot dpkg
+   brew install node p7zip imagemagick fakeroot dpkg
    ```
 
-4. Download the latest Notion Windows or macOS installer, as `notion.exe` or `notion.dmg` respectively, e.g. using wget:
+2. Clone this repo and `cd` into the folder
+
+3. Install Node.js dependency packages:
 
    ```sh
-   wget 'https://desktop-release.notion-static.com/Notion%20Setup%202.0.6.exe' -O notion.exe
+   npm install
    ```
 
 # Build
 
+Edit the `config` section in `package.json`:
+- Set `platform` with either `win` or `mac`, depending on which sources you would like to build from.
+- Set `version` to the Notion installer version. Visit https://www.notion.so/desktop to check available version for specific platform.
+
 Run the build script:
 
 ```sh
-./build.sh <platform>
+npm run download
+npm run build
 ```
-
-replacing `<platform>` with either `win` or `mac`, depending on which sources you would like to build from.
 
 Once complete, you should have a DEB package in the `out` directory.
