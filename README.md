@@ -30,7 +30,7 @@ See [Releases](https://github.com/davidbailey00/notion-deb-builder/releases)
    npm install
    ```
 
-# Build
+## Build
 
 Edit the `config` section in `package.json`:
 - Set `platform` with either `win` or `mac`, depending on which sources you would like to build from.
